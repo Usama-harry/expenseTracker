@@ -1,0 +1,13 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 50px;
+  padding: 0 3%;
+  background-color: var(--primary-color);
+}
+
+.add-btn {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
