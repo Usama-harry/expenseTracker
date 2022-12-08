@@ -1,0 +1,27 @@
+.container {
+  margin: 2rem auto;
+  width: 70%;
+}
+
+.responsive-width {
+  width: 80%;
+}
+
+@media screen and (max-width: 576px) {
+  .responsive-width {
+    width: 100%;
+  }
+
+  .container {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .container {
+    width: 90%;
+  }
+  .responsive-width {
+    width: 100%;
+  }
+}

@@ -1,0 +1,10 @@
+.error {
+  background-color: var(--error-color);
+  font-weight: bold;
+  color: black;
+  margin: auto;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  text-align: left;
+  margin: 2rem auto 1rem auto;
+}

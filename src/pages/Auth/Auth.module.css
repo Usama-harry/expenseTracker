@@ -1,0 +1,93 @@
+.container {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.card {
+  padding: 2rem;
+}
+
+.auth-title {
+  color: var(--primary-color);
+  font-weight: bold;
+}
+
+.form {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.input {
+  border-radius: 5px;
+  height: 40px;
+  border: 1px solid grey;
+}
+
+.responsive-width {
+  width: 70%;
+}
+
+.show-password-btn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  color: var(--secondary-color);
+  gap: 5px;
+  font-size: 0.8rem;
+}
+
+.submit-btn {
+  padding: 0.7rem 0;
+  margin: 0 0 0 0;
+  font-weight: bold;
+  background-color: var(--primary-light-color);
+  border: none;
+}
+
+.submit-btn:hover,
+.submit-btn:active {
+  background-color: var(--primary-color) !important;
+}
+
+.hr {
+  color: grey;
+}
+
+.switch-login-mode-btn {
+  padding: 0.7rem 0;
+  margin: 1.5rem 0 0 0;
+  font-weight: bold;
+  background-color: rgb(37, 216, 37);
+  border: none;
+}
+
+.switch-login-mode-btn:hover,
+.switch-login-mode-btn:active {
+  background-color: rgb(11, 131, 11) !important;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    width: 90%;
+  }
+
+  .responsive-width {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 577px) and (max-width: 768px) {
+  .container {
+    width: 80%;
+  }
+
+  .responsive-width {
+    width: 90%;
+  }
+}
