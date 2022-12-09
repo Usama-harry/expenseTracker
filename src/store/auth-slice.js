@@ -1,5 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+import { expenseActions } from "./expense-slice";
+
 const authSlice = createSlice({
   name: "auth",
   initialState: {
@@ -62,6 +64,7 @@ export const signUp = (
 
       if (response.ok) {
         setIsLoading(false);
+        dispatch(expenseActions.set(responseData.expenses));
         return dispatch(authActions.login(responseData));
       } else {
         setError(`There was problem signing up. ${responseData.message}`);
@@ -101,8 +104,8 @@ export const signIn = (email, password, setIsLoading, setError) => {
       const responseData = await response.json();
 
       if (response.ok) {
-        console.log(responseData);
         setIsLoading(false);
+        dispatch(expenseActions.set(responseData.expenses));
         return dispatch(authActions.login(responseData));
       } else {
         setError(`There was problem signing in. ${responseData.message}`);

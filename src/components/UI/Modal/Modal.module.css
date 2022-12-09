@@ -15,6 +15,7 @@
   width: 50%;
   z-index: 100;
   overflow: hidden;
+  animation: slide-down 300ms ease-out;
 }
 
 .modal {
@@ -32,5 +33,14 @@
   .overlay {
     width: 80%;
     left: 10%;
+  }
+}
+
+@keyframes slide-down {
+  from {
+    transform: translateY(-2rem);
+  }
+  to {
+    transform: translateY(0rem);
   }
 }

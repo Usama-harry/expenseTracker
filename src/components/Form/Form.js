@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Error from "../UI/Error/Error";
@@ -19,6 +19,13 @@ const Form = (props) => {
   //State
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(null);
+  const [isAdded, setIsAdded] = useState(false);
+
+  const onClose = props.onClose;
+
+  useEffect(() => {
+    if (isAdded) onClose();
+  }, [isAdded, onClose]);
 
   const submitFormHandle = (event) => {
     event.preventDefault();
@@ -26,8 +33,19 @@ const Form = (props) => {
     const amount = amountRef.current.valueAsNumber;
     const date = dateRef.current.value;
 
-    dispatch(addExpense(title, amount, date, user.id, setError, setIsLoading));
+    dispatch(
+      addExpense(
+        title,
+        amount,
+        date,
+        user.id,
+        setError,
+        setIsLoading,
+        setIsAdded
+      )
+    );
   };
+
   return (
     <form onSubmit={submitFormHandle}>
       {error && <Error style={{ textAlign: "center" }}>{error}</Error>}

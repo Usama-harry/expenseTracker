@@ -20,7 +20,7 @@
 .chart-bar__fill {
   background-color: var(--primary-color);
   width: 100%;
-  transition: all 0.6s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .chart-bar__label {

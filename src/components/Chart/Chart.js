@@ -4,7 +4,10 @@ import classes from "./Chart.module.css";
 
 const Chart = (props) => {
   const dataPointValues = props.dataPoints.map((dataPoint) => dataPoint.value);
-  const maxValue = Math.max(...dataPointValues);
+  const maxValue = dataPointValues.reduce(
+    (sum, newvalue) => (sum += newvalue),
+    0
+  );
 
   return (
     <div className={classes.chart}>

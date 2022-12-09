@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 
 import Modal from "../UI/Modal/Modal";
@@ -10,14 +10,14 @@ const Header = (props) => {
   const [showModal, setShowModal] = useState(false);
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
 
-  const hideModalHandler = () => setShowModal(false);
+  const hideModalHandler = useCallback(() => setShowModal(false), []);
   const showModalHandler = () => setShowModal(true);
 
   return (
     <header className={classes.header}>
       {showModal && (
-        <Modal onCancel={hideModalHandler}>
-          <Form></Form>
+        <Modal onClose={hideModalHandler}>
+          <Form onClose={hideModalHandler}></Form>
         </Modal>
       )}
       <h3 className={classes.logo}>Expense Tracker</h3>

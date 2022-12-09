@@ -9,6 +9,9 @@ const expenseSlice = createSlice({
     add(state, action) {
       state.expensesList.push(action.payload);
     },
+    set(state, action) {
+      state.expensesList = action.payload;
+    },
   },
 });
 
@@ -20,7 +23,8 @@ export const addExpense = (
   date,
   userId,
   setError,
-  setLoading
+  setLoading,
+  setIsAdded
 ) => {
   return async (dispatch) => {
     if (title.trim().length < 1) {
@@ -56,6 +60,8 @@ export const addExpense = (
       }
       setLoading(false);
       dispatch(expenseActions.add(responseData));
+      setIsAdded(true);
+      return;
     } catch (error) {
       setError(`An unknown error occured. ${error}`);
       setLoading(false);
