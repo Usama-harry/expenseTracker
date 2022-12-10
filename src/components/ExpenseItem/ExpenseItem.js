@@ -8,7 +8,7 @@ const ExpenseItem = (props) => {
         <div className={classes.month}>
           {props.date.toLocaleString("default", { month: "long" })}
         </div>
-        <div className={classes.day}>{props.date.getDay()}</div>
+        <div className={classes.day}>{props.date.getDate()}</div>
         <div className={classes.year}>{props.date.getFullYear()}</div>
       </div>
       <div className={classes.title}>{props.title}</div>

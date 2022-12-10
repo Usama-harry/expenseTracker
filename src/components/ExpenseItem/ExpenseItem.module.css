@@ -14,9 +14,9 @@
 .date {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-self: center;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
   background-color: var(--primary-color);
   padding: 0.5rem 2rem;
   border-radius: 8px;
@@ -45,4 +45,10 @@
 .amount {
   font-weight: bold;
   font-size: 2vw;
+}
+
+@media screen and (max-width: 400px) {
+  .container {
+    padding: 0.3rem;
+  }
 }

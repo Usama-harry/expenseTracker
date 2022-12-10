@@ -7,7 +7,11 @@ const expenseSlice = createSlice({
   },
   reducers: {
     add(state, action) {
-      state.expensesList.push(action.payload);
+      const index = state.expensesList.findIndex((expense) => {
+        return action.payload.date > expense.date;
+      });
+
+      state.expensesList.splice(index, 0, action.payload);
     },
     set(state, action) {
       state.expensesList = action.payload;
@@ -17,6 +21,7 @@ const expenseSlice = createSlice({
 
 export const expenseActions = expenseSlice.actions;
 
+const ipAddress = "http://3.113.6.131:5000";
 export const addExpense = (
   title,
   amount,
@@ -42,7 +47,7 @@ export const addExpense = (
     setError(null);
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:4000/expenses/add", {
+      const response = await fetch(`${ipAddress}/expenses/add`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

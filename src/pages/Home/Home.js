@@ -25,6 +25,7 @@ const Home = (props) => {
       if (!tempAllYears.includes(date.getFullYear()))
         tempAllYears.push(date.getFullYear());
     });
+
     setAllYears(tempAllYears);
     setIsFirstRender(true);
   }, [expensesList]);
@@ -46,10 +47,11 @@ const Home = (props) => {
     ];
 
     if (isFirstRender) {
-      console.log(Math.max(...allYears));
       if (!selectedYear)
-        if (allYears.length !== 0) setSelectedYear(Math.max(...allYears));
-      setIsFirstRender(false);
+        if (allYears.length !== 0) {
+          setSelectedYear(Math.max(...allYears));
+          setIsFirstRender(false);
+        }
     }
 
     expensesList.forEach((expense) => {

@@ -20,6 +20,7 @@ const authSlice = createSlice({
   },
 });
 
+const ipAddress = "http://3.113.6.131:5000";
 export const signUp = (
   name,
   email,
@@ -50,7 +51,7 @@ export const signUp = (
     setError(null);
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:4000/auth/signup", {
+      const response = await fetch(`${ipAddress}/auth/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -92,7 +93,7 @@ export const signIn = (email, password, setIsLoading, setError) => {
     setError(null);
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:4000/auth/signin", {
+      const response = await fetch(`${ipAddress}/auth/signin`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
